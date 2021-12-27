@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assate/Sprites/Props/Original/Snowy/tree_snowy.png" type="Texture" id=1]
 [ext_resource path="res://Assate/Sprites/Props/Original/Snowy/rock_snowy.png" type="Texture" id=2]
 [ext_resource path="res://Assate/Tileset/SnowGround.tres" type="TileSet" id=3]
 [ext_resource path="res://Assate/Tileset/MudGround.tres" type="TileSet" id=4]
 [ext_resource path="res://Scene/Character/Senta.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Script/Main.gd" type="Script" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 16, 9.96388, 0, 10.4125, 0, 0, 16, 0 )
@@ -57,6 +58,8 @@ points = PoolVector2Array( 17.5205, 48, 13.6444, 48, 13.6444, 38.2579, 17.5205, 
 2/z_index = 0
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 6 )
+tile_map = NodePath("YSort/Propes")
 
 [node name="SnowGround" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -78,7 +81,6 @@ cell_size = Vector2( 16, 16 )
 cell_y_sort = true
 centered_textures = true
 format = 1
-tile_data = PoolIntArray( 262149, 2, 0, 262158, 2, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 393224, 1, 0, 393230, 1, 0, 458760, 1, 0, 458766, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0 )
 
 [node name="Senta" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 161, 96 )
