@@ -15,9 +15,9 @@ points = PoolVector2Array( 17.5205, 48, 13.6444, 48, 13.6444, 38.2579, 17.5205, 
 [sub_resource type="TileSet" id=3]
 1/name = "rock_snowy.png 1"
 1/texture = ExtResource( 2 )
-1/tex_offset = Vector2( 0, 8 )
+1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 16, 16 )
+1/region = Rect2( 0, 0, 16, 10 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
@@ -36,7 +36,7 @@ points = PoolVector2Array( 17.5205, 48, 13.6444, 48, 13.6444, 38.2579, 17.5205, 
 1/z_index = 0
 2/name = "tree_snowy.png 2"
 2/texture = ExtResource( 1 )
-2/tex_offset = Vector2( 0, -30 )
+2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 32, 48 )
 2/tile_mode = 0
@@ -72,14 +72,14 @@ tile_data = PoolIntArray( -65538, 0, 131075, -65537, 0, 131073, -131072, 0, 1310
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Senta" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 161, 96 )
-movement_speed = 80.0
-
 [node name="Propes" type="TileMap" parent="YSort"]
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 cell_y_sort = true
-compatibility_mode = true
+centered_textures = true
 format = 1
 tile_data = PoolIntArray( 262149, 2, 0, 262158, 2, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 393224, 1, 0, 393230, 1, 0, 458760, 1, 0, 458766, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0 )
+
+[node name="Senta" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 161, 96 )
+movement_speed = 80.0
