@@ -18,5 +18,9 @@ func _choose_random_position():
     var choosen_position = Vector2(rand_range(16, (ss.x - 16)), rand_range(16, (ss.y - 16)))
     global_position = choosen_position
 
-func pick_up():
+func pick_up(node):
+    # disapear animation
+    # change needed variable
+    # choose random position
+    # apear animation
     pass

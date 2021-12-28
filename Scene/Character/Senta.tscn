@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assate/Sprites/Character/character_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Script/Character/Senta.gd" type="Script" id=2]
+[ext_resource path="res://Script/PresentDetector.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=19]
 radius = 4.0
@@ -59,7 +60,11 @@ start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
+[sub_resource type="CircleShape2D" id=20]
+radius = 12.0
+
 [node name="Senta" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -96,3 +101,15 @@ drag_margin_top = 0.5
 drag_margin_right = 0.5
 drag_margin_bottom = 0.5
 editor_draw_drag_margin = true
+
+[node name="PresentDetector" type="Area2D" parent="."]
+position = Vector2( 0, 2 )
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PresentDetector"]
+shape = SubResource( 20 )
+
+[connection signal="area_entered" from="PresentDetector" to="PresentDetector" method="_on_PresentDetector_area_entered"]

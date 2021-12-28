@@ -66,6 +66,12 @@ d={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Global"
+2d_physics/layer_2="Senta"
+2d_physics/layer_3="Gift"
+
 [physics]
 
 common/enable_pause_aware_picking=true
