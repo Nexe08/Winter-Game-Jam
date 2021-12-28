@@ -3,10 +3,11 @@ extends Node2D
 
 export (NodePath) var tile_map
 
-onready var map: TileMap = get_node(tile_map)
 var tile_size = 16
 var map_size = Vector2(1024, 600) / Vector2(tile_size, tile_size)
 
+onready var mud_ground = $MudGround
+onready var map: TileMap = get_node(tile_map)
 
 func _ready() -> void:
     randomize()
