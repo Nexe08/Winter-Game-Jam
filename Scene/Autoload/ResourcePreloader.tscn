@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scene/Propes/Present.tscn" type="PackedScene" id=2]
+
+[node name="ResourcePreloader" type="ResourcePreloader"]
+resources = [ PoolStringArray( "Present" ), [ ExtResource( 2 ) ] ]

@@ -20,7 +20,7 @@ func _choose_random_position():
 
 func pick_up(node):
     # disapear animation
-    # change needed variable
-    # choose random position
+    if node.has_method("_gift_picked_up"):
+        node._gift_picked_up(1)
+    _choose_random_position()
     # apear animation
-    pass

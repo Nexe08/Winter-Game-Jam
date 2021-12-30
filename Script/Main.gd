@@ -2,6 +2,7 @@ extends Node2D
 # Main
 
 export (NodePath) var tile_map
+export (int) var on_screen_gift_count = 10
 
 var tile_size = 16
 var map_size = Vector2(1024, 600) / Vector2(tile_size, tile_size)
@@ -12,6 +13,12 @@ onready var map: TileMap = get_node(tile_map)
 func _ready() -> void:
     randomize()
     _generate_map()
+    _add_gifts()
+
+func _add_gifts():
+    for i in range(on_screen_gift_count):
+        var instance = Preloader.get_resource("Present").instance()
+        $YSort/Gifts.add_child(instance)
 
 func _generate_map():
     _generte_border_propes()
