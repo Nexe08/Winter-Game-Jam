@@ -6,6 +6,10 @@ var direction: Vector2
 var velocity: Vector2
 const UP = Vector2.UP
 
+var inventory = {
+    'gift': 0
+}
+
 onready var fsm = $AnimationTree.get('parameters/playback')
 onready var sprite = $Sprite
 
@@ -32,3 +36,6 @@ func _handel_animation():
             sprite.flip_h = true
         else:
             sprite.flip_h = false
+
+func set_gift_count(value: int) -> void:
+    inventory.gift += value

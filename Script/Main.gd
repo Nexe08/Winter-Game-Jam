@@ -3,6 +3,7 @@ extends Node2D
 
 export (NodePath) var tile_map
 export (int) var on_screen_gift_count = 10
+export (int) var on_screen_enemy_count = 18
 
 var tile_size = 16
 var map_size = Vector2(1024, 600) / Vector2(tile_size, tile_size)
@@ -14,9 +15,10 @@ func _ready() -> void:
     randomize()
     _generate_map()
     _add_gifts()
+    _spawn_enemy()
 
 func _add_gifts():
-    for i in range(on_screen_gift_count):
+    for _i in range(on_screen_gift_count):
         var instance = Preloader.get_resource("Present").instance()
         $YSort/Gifts.add_child(instance)
 
@@ -45,3 +47,8 @@ func _generte_inner_propes():
                 var ids = map.tile_set.get_tiles_ids()
                 ids.shuffle()
                 map.set_cell(i, j, ids.front())
+
+func _spawn_enemy():
+    for _i in range(on_screen_enemy_count):
+        var instance = Preloader.get_resource("Enemy").instance()
+        $YSort/Enemys.add_child(instance)

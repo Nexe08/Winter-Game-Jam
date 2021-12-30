@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://Scene/Character/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scene/Propes/Present.tscn" type="PackedScene" id=2]
 
 [node name="ResourcePreloader" type="ResourcePreloader"]
-resources = [ PoolStringArray( "Present" ), [ ExtResource( 2 ) ] ]
+resources = [ PoolStringArray( "Enemy", "Present" ), [ ExtResource( 1 ), ExtResource( 2 ) ] ]
