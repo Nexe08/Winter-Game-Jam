@@ -50,5 +50,4 @@ func _generte_inner_propes():
 
 func _spawn_enemy():
     for _i in range(on_screen_enemy_count):
-        var instance = Preloader.get_resource("Enemy").instance()
-        $YSort/Enemys.add_child(instance)
+        Global.spawn_enemy(Preloader.get_resource("Enemy"), $YSort/Enemys)

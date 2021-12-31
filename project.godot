@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Preloader="*res://Scene/Autoload/ResourcePreloader.tscn"
+Global="*res://Script/Autoload/Global.gd"
 
 [display]
 

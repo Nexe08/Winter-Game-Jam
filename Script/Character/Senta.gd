@@ -1,7 +1,10 @@
 extends KinematicBody2D
 # Senta
 
+
 export (float) var movement_speed = 40
+export (float) var Life = 5
+
 var direction: Vector2
 var velocity: Vector2
 const UP = Vector2.UP
@@ -12,6 +15,9 @@ var inventory = {
 
 onready var fsm = $AnimationTree.get('parameters/playback')
 onready var sprite = $Sprite
+
+func _ready() -> void:
+    Global.senta = self
 
 func _physics_process(delta: float) -> void:
     velocity = move_and_slide(velocity, UP)
@@ -39,3 +45,6 @@ func _handel_animation():
 
 func set_gift_count(value: int) -> void:
     inventory.gift += value
+
+func take_damage(takken_damage: float) -> void:
+    Life -= takken_damage
