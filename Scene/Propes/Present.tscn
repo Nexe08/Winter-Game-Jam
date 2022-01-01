@@ -1,10 +1,78 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Script/Propes/Present.gd" type="Script" id=1]
 [ext_resource path="res://Assate/Sprites/Props/Original/Gifts/gift_blue.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.0333
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 103.28
+initial_velocity_random = 0.55
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 100.0
+damping_random = 0.52
+
+[sub_resource type="Animation" id=4]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "picked_up"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_choose_random_position"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("DeathPartical:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="Present" type="Area2D"]
 collision_layer = 4
@@ -18,3 +86,18 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 5, 1, 1, 1 )
 texture = ExtResource( 2 )
+
+[node name="DeathPartical" type="Particles2D" parent="."]
+modulate = Color( 3, 1, 1, 1 )
+emitting = false
+amount = 216
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.89
+randomness = 0.42
+local_coords = false
+process_material = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/default = SubResource( 4 )
+anims/picked_up = SubResource( 3 )
