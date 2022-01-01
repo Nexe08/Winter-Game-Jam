@@ -18,6 +18,7 @@ onready var sprite = $Sprite
 
 func _ready() -> void:
     Global.senta = self
+    Global.emit_signal("senta_health_updated", Life)
 
 func _physics_process(delta: float) -> void:
     velocity = move_and_slide(velocity, UP)
@@ -47,4 +48,8 @@ func set_gift_count(value: int) -> void:
     inventory.gift += value
 
 func take_damage(takken_damage: float) -> void:
+    if Life <= 0:
+        return
+    
     Life -= takken_damage
+    Global.emit_signal("senta_health_updated", Life)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assate/Sprites/Props/Original/Snowy/tree_snowy.png" type="Texture" id=1]
 [ext_resource path="res://Assate/Sprites/Props/Original/Snowy/rock_snowy.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assate/Tileset/MudGround.tres" type="TileSet" id=4]
 [ext_resource path="res://Scene/Character/Senta.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Script/Main.gd" type="Script" id=6]
+[ext_resource path="res://Scene/HUD.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Environment" id=5]
 background_mode = 4
@@ -73,6 +74,10 @@ points = PoolVector2Array( 21.4936, 38, 10.1882, 38, 10.1882, 22.5703, 21.2244, 
 [node name="Main" type="Node2D"]
 script = ExtResource( 6 )
 tile_map = NodePath("YSort/Propes")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
