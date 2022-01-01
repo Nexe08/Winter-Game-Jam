@@ -21,9 +21,10 @@ func _ready() -> void:
     Global.emit_signal("senta_health_updated", Life)
 
 func _physics_process(delta: float) -> void:
-    velocity = move_and_slide(velocity, UP)
+    Global.camera.follow_target(self, 2.5, Vector2(0, 1024), Vector2(0, 600))
     _handel_movement(delta)
     _handel_animation()
+    velocity = move_and_slide(velocity, UP)
 
 func _handel_movement(delta):
     direction.x = int(Input.get_action_strength("d") - Input.get_action_strength("a"))

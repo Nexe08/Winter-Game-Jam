@@ -6,6 +6,7 @@ signal enemy_killed
 # warning-ignore:unused_signal
 signal senta_health_updated(value)
 
+var camera
 var senta
 
 func spawn_enemy(node: PackedScene, parent: Node) -> void:
