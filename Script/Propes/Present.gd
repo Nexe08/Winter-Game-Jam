@@ -24,7 +24,6 @@ func _handel_sprite_property():
     $Sprite.visible = true
 
 func pick_up(node):
-    # disapear animation
     if node.has_method("_gift_picked_up"):
         node._gift_picked_up(1)
     
