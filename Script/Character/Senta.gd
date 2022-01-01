@@ -11,6 +11,7 @@ const UP = Vector2.UP
 
 onready var fsm = $AnimationTree.get('parameters/playback')
 onready var sprite = $Sprite
+onready var mask_sprite = $Sprite/Mask
 
 func _ready() -> void:
     Global.senta = self
@@ -38,8 +39,10 @@ func _handel_animation():
         
         if velocity.x < 0:
             sprite.flip_h = true
+            mask_sprite.flip_h = true
         else:
             sprite.flip_h = false
+            mask_sprite.flip_h = false
 
 func take_damage(takken_damage: float) -> void:
     if Life <= 0:
