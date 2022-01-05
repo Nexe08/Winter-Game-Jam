@@ -17,6 +17,8 @@ signal start_game
 signal quit_game
 # warning-ignore:unused_signal
 signal restart_game
+# warning-ignore:unused_signal
+signal update_bomb_count(value)
 
 var camera
 var game

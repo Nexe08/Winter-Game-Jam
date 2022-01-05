@@ -10,6 +10,7 @@ var velocity: Vector2
 const UP = Vector2.UP
 
 onready var fsm = $AnimationTree.get('parameters/playback')
+onready var inventory = $Inventory
 onready var sprite = $Sprite
 onready var mask_sprite = $Sprite/Mask
 
@@ -43,9 +44,13 @@ func _handel_animation():
 
 func _handel_bomb_placement():
     if Input.is_action_just_pressed("space"):
+        if inventory.get_bomb_count() <= 0:
+            return
+        
         var bomb_instance = Preloader.get_resource("Bomb").instance()
         bomb_instance.global_position = global_position
         get_parent().add_child(bomb_instance)
+        Global.emit_signal("update_bomb_count", -1)
 
 func _handel_movement(delta):
     direction.x = int(Input.get_action_strength("d") - Input.get_action_strength("a"))
