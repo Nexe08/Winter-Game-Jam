@@ -5,7 +5,7 @@
 [ext_resource path="res://Assate/Sprites/Props/Original/Ring_64/64.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 106.0
+radius = 83.0241
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -181,3 +181,5 @@ explosiveness = 0.89
 randomness = 0.42
 local_coords = false
 process_material = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_Bomb_body_entered"]
