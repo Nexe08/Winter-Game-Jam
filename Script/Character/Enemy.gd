@@ -1,6 +1,8 @@
 extends KinematicBody2D
 # Enemy
 
+export var Life: float = 4.0
+
 var explosition_damage: float = 2
 var movement_speed: float = 40
 var velocity:= Vector2()
@@ -48,6 +50,7 @@ func _move_towords_senta(delta: float) -> void:
             velocity = lerp(velocity, Vector2.ZERO, (5 * delta))
             can_attack = true
 
+# called in animation player
 func _self_distruction() -> void:
     Global.emit_signal("enemy_killed")
     queue_free()
@@ -62,3 +65,10 @@ func _on_ExplositionArea_body_entered(body: Node) -> void:
     if body.has_method("take_damage"):
         body.take_damage(explosition_damage)
     pass # Replace with function body.
+
+func take_damage(takken_damage):
+    Life -= takken_damage
+    
+    if Life <= 0:
+        can_attack = true
+        $AnimationPlayer.play("AttackState")
