@@ -24,18 +24,11 @@ func _physics_process(delta: float) -> void:
     
     Global.camera.follow_target(self, 2.5, Vector2(0, 1024), Vector2(0, 600))
     _handel_movement(delta)
+    _handel_bomb_placement()
     _handel_animation()
     velocity = move_and_slide(velocity, UP)
 
-func _handel_movement(delta):
-    direction.x = int(Input.get_action_strength("d") - Input.get_action_strength("a"))
-    direction.y = int(Input.get_action_strength("s") - Input.get_action_strength("w"))
-    
-    velocity.x = lerp(velocity.x, movement_speed * direction.x, 5 * delta)
-    velocity.y = lerp(velocity.y, movement_speed * direction.y, 5 * delta)
-
 func _handel_animation():
-    
     if direction.x == 0 and direction.y == 0:
         fsm.travel("idle")
     else:
@@ -47,6 +40,19 @@ func _handel_animation():
         else:
             sprite.flip_h = false
             mask_sprite.flip_h = false
+
+func _handel_bomb_placement():
+    if Input.is_action_just_pressed("space"):
+        var bomb_instance = Preloader.get_resource("Bomb").instance()
+        bomb_instance.global_position = global_position
+        get_parent().add_child(bomb_instance)
+
+func _handel_movement(delta):
+    direction.x = int(Input.get_action_strength("d") - Input.get_action_strength("a"))
+    direction.y = int(Input.get_action_strength("s") - Input.get_action_strength("w"))
+    
+    velocity.x = lerp(velocity.x, movement_speed * direction.x, 5 * delta)
+    velocity.y = lerp(velocity.y, movement_speed * direction.y, 5 * delta)
 
 func take_damage(takken_damage: float) -> void:
     if Life <= 0:

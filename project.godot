@@ -91,6 +91,7 @@ q={
 2d_physics/layer_1="Global"
 2d_physics/layer_2="Senta"
 2d_physics/layer_3="Gift"
+2d_physics/layer_4="Enemy"
 
 [physics]
 
