@@ -11,6 +11,7 @@ onready var mud_ground = $MudGround
 onready var map: TileMap = get_node("YSort/Propes")
 
 func _ready() -> void:
+    Global.game = self
     randomize()
     _generate_map()
     _add_gifts()

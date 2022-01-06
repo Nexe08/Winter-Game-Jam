@@ -18,6 +18,10 @@ func _ready() -> void:
     Global.emit_signal("senta_health_updated", Life)
 
 func _physics_process(delta: float) -> void:
+    if Life <= 0:
+        Global.emit_signal("game_over")
+        queue_free()
+    
     Global.camera.follow_target(self, 2.5, Vector2(0, 1024), Vector2(0, 600))
     _handel_movement(delta)
     _handel_animation()
