@@ -9,6 +9,7 @@ var direction: Vector2
 var velocity: Vector2
 const UP = Vector2.UP
 
+onready var inventory = $Inventory
 onready var fsm = $AnimationTree.get('parameters/playback')
 onready var sprite = $Sprite
 onready var mask_sprite = $Sprite/Mask
@@ -54,3 +55,9 @@ func take_damage(takken_damage: float) -> void:
     
     Life -= takken_damage
     Global.emit_signal("senta_health_updated", Life)
+
+func _on_ChildDetector_area_entered(area: Area2D) -> void:
+    if area.has_method("take_gift"):
+        if inventory.gift_count > 0:
+            area.take_gift()
+            inventory.spend_gift_from_inventory()

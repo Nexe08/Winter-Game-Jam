@@ -15,4 +15,10 @@ func _process(delta: float) -> void:
 func add_gift_in_inventory(value: int) -> void:
     if gift_count <= MAX_GIFT_COUNT:
         gift_count += value
-        Global.emit_signal("gift_count_updated", gift_count)
+    Global.emit_signal("gift_count_updated", gift_count)
+
+func spend_gift_from_inventory():
+    if gift_count > 0:
+        gift_count -= 1
+    
+    Global.emit_signal("gift_count_updated", gift_count)
