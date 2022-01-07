@@ -2,7 +2,6 @@ extends Node2D
 # Game
 
 export (int) var on_screen_gift_count = 10
-export (int) var on_screen_enemy_count = 18
 
 var tile_size = 16
 var map_size = Vector2(1024, 600) / Vector2(tile_size, tile_size)

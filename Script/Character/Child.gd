@@ -2,6 +2,8 @@ extends Area2D
 # Child
 
 func _ready() -> void:
+    Global.child = self
+    randomize()
     _choose_random_position()
 
 func _choose_random_position():

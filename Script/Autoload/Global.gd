@@ -17,6 +17,7 @@ signal quit_game
 signal restart_game
 
 var camera
+var child
 var game
 var game_over_screen
 var senta
