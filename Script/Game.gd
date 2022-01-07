@@ -13,6 +13,7 @@ onready var map: TileMap = get_node("YSort/Propes")
 func _ready() -> void:
     Global.game = self
     randomize()
+    _cameras_initial_position()
     _generate_map()
     _add_gifts()
 
@@ -20,6 +21,12 @@ func _add_gifts():
     for _i in range(on_screen_gift_count):
         var instance = Preloader.get_resource("Present").instance()
         $YSort/Gifts.add_child(instance)
+
+func _cameras_initial_position():
+    var camera = $Camera2D
+    var senta = $YSort/Senta
+    
+    camera.global_position = senta.global_position
 
 func _generate_map():
     _generte_border_propes()
