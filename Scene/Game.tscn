@@ -113,5 +113,3 @@ position = Vector2( 161, 96 )
 movement_speed = 80.0
 
 [node name="Gifts" type="Node2D" parent="YSort"]
-
-[node name="Enemys" type="Node2D" parent="YSort"]

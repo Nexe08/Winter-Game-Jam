@@ -15,7 +15,6 @@ func _ready() -> void:
     randomize()
     _generate_map()
     _add_gifts()
-    _spawn_enemy()
 
 func _add_gifts():
     for _i in range(on_screen_gift_count):
@@ -47,8 +46,3 @@ func _generte_inner_propes():
                 var ids = map.tile_set.get_tiles_ids()
                 ids.shuffle()
                 map.set_cell(i, j, ids.front())
-
-func _spawn_enemy():
-    for _i in range(on_screen_enemy_count):
-        Global.spawn_enemy(Preloader.get_resource("Enemy"), $YSort/Enemys)
-
