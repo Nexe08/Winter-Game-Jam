@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
         Global.emit_signal("game_over")
         queue_free()
     
-    Global.camera.follow_target(self, 2.5, Vector2(0, 1024), Vector2(0, 600))
+#    Global.camera.follow_target(self, 2.5, Vector2(0, 341), Vector2(0, 200))
     _handel_movement(delta)
     _handel_animation()
     velocity = move_and_slide(velocity, UP)
