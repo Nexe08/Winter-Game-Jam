@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scene/Trap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scene/Character/Senta.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assate/Tileset/MudGround.tres" type="TileSet" id=6]
 [ext_resource path="res://Assate/Tileset/SnowGround.tres" type="TileSet" id=7]
@@ -49,3 +50,18 @@ position = Vector2( 18, 95 )
 movement_speed = 80.0
 
 [node name="Gifts" type="Node2D" parent="."]
+
+[node name="Trap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, 0 )
+
+[node name="Trap2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 104, 0 )
+
+[node name="Trap3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 168, 0 )
+
+[node name="Trap4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 232, 0 )
+
+[node name="Trap5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 296, 0 )
