@@ -9,7 +9,7 @@ const MAX_GIFT_COUNT = 1
 func _ready() -> void:
     Global.emit_signal("gift_count_updated", gift_count)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     can_pick = false if gift_count >= MAX_GIFT_COUNT else true
 
 func add_gift_in_inventory(value: int) -> void:
