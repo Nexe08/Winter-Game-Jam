@@ -15,8 +15,8 @@ func _ready() -> void:
 func _choose_random_position():
     _handel_sprite_property()
     var ss = get_viewport_rect().size
-    # 16 is tile size
-    var choosen_position = Vector2(rand_range(16, (ss.x - 16)), rand_range(16, (ss.y - 16)))
+    # right side of the screen
+    var choosen_position = Vector2(rand_range(ss.x -20,ss.x - 12), rand_range(12, ss.y - 12))
     global_position = choosen_position
 
 func _handel_sprite_property():
