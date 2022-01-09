@@ -19,4 +19,9 @@ signal restart_game
 var camera
 var game
 var game_over_screen
+var present_bag
 var senta
+
+func get_final_score():
+    if is_instance_valid(present_bag):
+        return present_bag.gift_in_bag

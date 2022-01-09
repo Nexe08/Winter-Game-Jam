@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assate/Font/Kenney High.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script/GameOverScreen.gd" type="Script" id=2]
@@ -11,6 +11,22 @@ size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=3]
+resource_name = "default"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0.647059, 1 ), Color( 0, 1, 0.529412, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
 resource_name = "default"
 loop = true
 tracks/0/type = "value"
@@ -66,38 +82,70 @@ __meta__ = {
 }
 
 [node name="LeftMargin" type="Label" parent="HBoxContainer"]
-margin_top = 293.0
-margin_right = 338.0
-margin_bottom = 307.0
+margin_top = 93.0
+margin_right = 68.0
+margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 342.0
-margin_right = 681.0
-margin_bottom = 600.0
+margin_left = 72.0
+margin_right = 268.0
+margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TopMargin" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_right = 339.0
-margin_bottom = 197.0
+margin_right = 196.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Text" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 201.0
-margin_right = 339.0
-margin_bottom = 398.0
+margin_top = 54.0
+margin_right = 196.0
+margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Text"]
-margin_right = 339.0
+margin_right = 196.0
 margin_bottom = 28.0
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer"]
-margin_right = 107.0
+margin_right = 96.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "score: "
+align = 1
+valign = 1
+
+[node name="FinalScore" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer"]
+margin_left = 100.0
+margin_right = 196.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 1, 0.647059, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "R"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer/FinalScore"]
+autoplay = "default"
+anims/default = SubResource( 3 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Text"]
+margin_top = 32.0
+margin_right = 196.0
+margin_bottom = 60.0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer3"]
+margin_right = 60.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -107,9 +155,9 @@ text = "Press"
 align = 1
 valign = 1
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer"]
-margin_left = 111.0
-margin_right = 219.0
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer3"]
+margin_left = 64.0
+margin_right = 76.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -119,13 +167,13 @@ text = "R"
 align = 1
 valign = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer/Label2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer3/Label2"]
 autoplay = "default"
-anims/default = SubResource( 3 )
+anims/default = SubResource( 5 )
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer"]
-margin_left = 223.0
-margin_right = 339.0
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer3"]
+margin_left = 80.0
+margin_right = 196.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -136,12 +184,12 @@ align = 1
 valign = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Text"]
-margin_top = 32.0
-margin_right = 339.0
-margin_bottom = 60.0
+margin_top = 64.0
+margin_right = 196.0
+margin_bottom = 92.0
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer2"]
-margin_right = 110.0
+margin_right = 60.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -152,8 +200,8 @@ align = 1
 valign = 1
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer2"]
-margin_left = 114.0
-margin_right = 224.0
+margin_left = 64.0
+margin_right = 120.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -168,8 +216,8 @@ autoplay = "default"
 anims/default = SubResource( 4 )
 
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer/Text/HBoxContainer2"]
-margin_left = 228.0
-margin_right = 339.0
+margin_left = 124.0
+margin_right = 196.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -180,16 +228,16 @@ align = 1
 valign = 1
 
 [node name="BottomMargin" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 402.0
-margin_right = 339.0
-margin_bottom = 600.0
+margin_top = 150.0
+margin_right = 196.0
+margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RightMargin" type="Label" parent="HBoxContainer"]
-margin_left = 685.0
-margin_top = 293.0
-margin_right = 1024.0
-margin_bottom = 307.0
+margin_left = 272.0
+margin_top = 93.0
+margin_right = 341.0
+margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 6

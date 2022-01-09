@@ -7,6 +7,9 @@ var gift_in_bag: int = 0
 
 onready var sprite = get_node(sprite_path)
 
+func _ready() -> void:
+    Global.present_bag = self
+
 func _process(delta: float) -> void:
     sprite.scale = lerp(sprite.scale, Vector2(.5, .5), 5 * delta)
 

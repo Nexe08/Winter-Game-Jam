@@ -2,6 +2,7 @@ extends Control
 # Game over scene
 
 func _ready() -> void:
+    $HBoxContainer/VBoxContainer/Text/HBoxContainer/FinalScore.text = String(Global.get_final_score())
     Global.game_over_screen = self
 
 func _unhandled_input(event: InputEvent) -> void:
